@@ -22,5 +22,11 @@ $Connection->create_object('bucket', 'file_path', array(
 
 $Connection->if_object_exists('bucket', 'file_path');
 
+// there be save file
+$tmp = tempnam("/tmp", "diz");
+$Connection->get_object('bucket', 'file_path', array(
+    'fileDownload' => $tmp,
+));
+
 $Connection->delete_object('bucket', 'file_path');
 ```
